@@ -1,4 +1,4 @@
-package com.fox.storey.model;
+package com.fox.storey.entity;
 
 
 public enum Role {

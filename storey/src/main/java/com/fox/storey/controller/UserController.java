@@ -1,0 +1,42 @@
+package com.fox.storey.controller;
+
+import com.fox.storey.entity.AuthRequest;
+import com.fox.storey.entity.User;
+import com.fox.storey.service.JwtService;
+import com.fox.storey.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/auth")
+@RequiredArgsConstructor
+public class UserController {
+
+    private UserService service;
+
+    private JwtService jwtService;
+
+    private AuthenticationManager authenticationManager;
+
+    @PostMapping("/addNewUser")
+    public String addNewUser(@RequestBody User user) {
+        return service.addUser(user);
+    }
+
+    @PostMapping("/generateToken")
+    public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
+        );
+        if (authentication.isAuthenticated()) {
+            return jwtService.generateToken(authRequest.getUsername());
+        } else {
+            throw new UsernameNotFoundException("Invalid user request!");
+        }
+    }
+}
