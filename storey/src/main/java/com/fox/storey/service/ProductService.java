@@ -115,9 +115,7 @@ public class ProductService {
                 log.warn("Product ID: {} is already in user ID: {} favorites", productId, userId);
                 throw new RuntimeException("Product is already in favorites");
             }
-
             existingUser.getFavoriteProducts().add(existingProduct);
-
             userRepository.save(existingUser);
         } catch (Exception e) {
             log.error("Error adding product to favorites: {}", e.getMessage());

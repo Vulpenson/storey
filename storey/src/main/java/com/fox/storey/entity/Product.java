@@ -12,13 +12,13 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false, name = "product_name")
+    @Column(unique = true, nullable = false, name = "name")
     private String name;
 
-    @Column(name = "product_description")
+    @Column(name = "description")
     private String description;
 
-    @Column(nullable = false, name = "product_price")
+    @Column(nullable = false, name = "price")
     private Float price;
 
     @ManyToOne(fetch = FetchType.LAZY)
