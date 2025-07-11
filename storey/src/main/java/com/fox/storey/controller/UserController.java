@@ -3,7 +3,7 @@ package com.fox.storey.controller;
 import com.fox.storey.entity.AuthRequest;
 import com.fox.storey.entity.User;
 import com.fox.storey.service.JwtService;
-import com.fox.storey.service.UserService;
+import com.fox.storey.service.UserInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class UserController {
 
-    private UserService service;
+    private UserInfoService service;
 
     private JwtService jwtService;
 
