@@ -3,7 +3,7 @@ package com.fox.storey.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Table(name = "product")
+@Table(name = "products")
 @Entity
 @Data
 public class Product {
