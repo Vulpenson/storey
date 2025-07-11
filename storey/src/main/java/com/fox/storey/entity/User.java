@@ -1,13 +1,13 @@
-package com.fox.storey.model;
+package com.fox.storey.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users")
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -15,13 +15,10 @@ public class User {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String username;
+    private String email;
 
     @Column(nullable = false)
     private String password;
-
-    @Column(unique = true, nullable = false)
-    private String email;
 
     @Column(nullable = false)
     private Role role;
@@ -29,8 +26,10 @@ public class User {
     @Column(name = "is_active", nullable = false)
     private boolean isActive = true;
 
-    @Column(name = "is_deleted", nullable = false)
-    private boolean isDeleted = false;
-
-
+    public User(String email, String password, Role role, boolean isActive) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.isActive = isActive;
+    }
 }
