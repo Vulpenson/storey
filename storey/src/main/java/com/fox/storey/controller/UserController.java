@@ -5,6 +5,7 @@ import com.fox.storey.entity.AuthRequest;
 import com.fox.storey.service.JwtService;
 import com.fox.storey.service.UserInfoService;
 import lombok.AllArgsConstructor;
+import oracle.jdbc.proxy.annotation.Post;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -39,4 +40,5 @@ public class UserController {
             throw new UsernameNotFoundException("Invalid user request!");
         }
     }
+
 }

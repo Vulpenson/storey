@@ -52,11 +52,11 @@ public class SecurityConfig {
                                 "/webjars/**"
                         ).permitAll()
                         // Your existing public and protected endpoints here
-                        .requestMatchers("/auth/**").permitAll()
+                        .requestMatchers("/auth/generateToken").permitAll()
 
-//                        // Role-based endpoints
-//                        .requestMatchers("/auth/user/**").hasAuthority("ROLE_USER")
-//                        .requestMatchers("/auth/admin/**").hasAuthority("ROLE_ADMIN")
+                        // Role-based endpoints
+                        .requestMatchers("/auth/**").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers("/storey/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
 
                         // All other endpoints require authentication
                         .anyRequest().authenticated()
