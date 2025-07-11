@@ -1,6 +1,8 @@
 package com.fox.storey.service;
 
 import com.fox.storey.config.EncoderConfig;
+import com.fox.storey.dto.UserDto;
+import com.fox.storey.entity.Role;
 import com.fox.storey.entity.User;
 import com.fox.storey.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -32,10 +34,16 @@ public class UserInfoService implements UserDetailsService {
     }
 
     // Add any additional methods for registering or managing users
-    public String addUser(User userInfo) {
+    public String addUser(UserDto userInfo) {
         // Encrypt password before saving
         userInfo.setPassword(encoderConfig.passwordEncoder().encode(userInfo.getPassword()));
-        repository.save(userInfo);
+
+        User user = new User(userInfo.getEmail(),
+                             userInfo.getPassword(),
+                             Role.getRoleByName(userInfo.getRole()),
+                             userInfo.isActive()
+        );
+        repository.save(user);
         return "User added successfully!";
     }
 }

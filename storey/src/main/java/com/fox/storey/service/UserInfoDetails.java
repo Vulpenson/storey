@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 public class UserInfoDetails implements UserDetails {
 
-    private String email; // Changed from 'name' to 'email' for clarity
+    private String email;
     private String password;
     private List<GrantedAuthority> authorities;
 
