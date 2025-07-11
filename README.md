@@ -4,7 +4,7 @@ Create an API that acts as a store management tool.
 
 ## ✅ Features
 
-- [ ] Implement some functions, for example: `add-product`, `find-product`, `change-price`, or others  
+- [x] Implement some functions, for example: `add-product`, `find-product`, `change-price`, or others  
 - [x] Implement a basic authentication mechanism and role-based endpoint access  
 - [ ] Design error mechanism and handling plus logging  
 - [ ] Write unit tests, at least for one class  
