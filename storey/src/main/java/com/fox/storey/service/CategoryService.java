@@ -31,6 +31,7 @@ public class CategoryService {
 
     public List<Category> getAllCategories() {
         try {
+            log.info("Fetching all categories");
             return categoryRepository.findAll();
         } catch (Exception e) {
             log.error("Error fetching all categories: {}", e.getMessage());
@@ -40,6 +41,7 @@ public class CategoryService {
 
     public Category getCategoryById(Long id) {
         try {
+            log.info("Fetching category by id {}", id);
             return categoryRepository.findById(id)
                     .orElseThrow(() -> new RuntimeException("Category not found with ID: " + id));
         } catch (Exception e) {
