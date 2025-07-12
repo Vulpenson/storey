@@ -1,8 +1,10 @@
 package com.fox.storey.unit.service;
 
 
+import com.fox.storey.dto.ProductDto;
 import com.fox.storey.entity.Category;
 import com.fox.storey.entity.Product;
+import com.fox.storey.repository.CategoryRepository;
 import com.fox.storey.repository.ProductRepository;
 import com.fox.storey.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
@@ -25,10 +27,15 @@ public class ProductServiceTest {
     @Mock
     private ProductRepository productRepository;
 
+    @Mock
+    private CategoryRepository categoryRepository;
+
     @InjectMocks
     private ProductService productService;
 
     private Product testProduct;
+
+    private ProductDto testProductDto;
 
     private Category testCategory;
 
@@ -45,9 +52,16 @@ public class ProductServiceTest {
         testProduct.setDescription("Juicy red apple");
         testProduct.setPrice(0.5F);
 
+        testProductDto = new ProductDto();
+        testProductDto.setName("Apple");
+        testProductDto.setDescription("Juicy red apple");
+        testProductDto.setPrice(0.5F);
+        testProductDto.setCategoryId(1L);
+
         testCategory = new Category();
         testCategory.setId(1L);
         testCategory.setName("Fruits");
+
         testProduct.setCategory(testCategory);
     }
 
@@ -94,9 +108,10 @@ public class ProductServiceTest {
 
     @Test
     void shouldSaveProduct() {
-        when(productRepository.save(testProduct)).thenReturn(testProduct);
+        when(productRepository.save(any(Product.class))).thenReturn(testProduct);
+        when(categoryRepository.findById(1L)).thenReturn(Optional.of(testCategory));
 
-        Product saved = productService.saveProduct(testProduct);
+        Product saved = productService.saveProduct(testProductDto);
 
         log.info(saved.toString());
         assertNotNull(saved);

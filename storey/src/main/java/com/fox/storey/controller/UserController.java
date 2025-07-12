@@ -5,10 +5,11 @@ import com.fox.storey.entity.AuthRequest;
 import com.fox.storey.service.JwtService;
 import com.fox.storey.service.UserInfoService;
 import lombok.AllArgsConstructor;
-import oracle.jdbc.proxy.annotation.Post;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/auth")
 @AllArgsConstructor
+@Slf4j
 public class UserController {
 
     private UserInfoService service;
@@ -31,12 +33,20 @@ public class UserController {
 
     @PostMapping("/generateToken")
     public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
-        );
+        Authentication authentication;
+        try {
+            authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
+            );
+        } catch (AuthenticationException e) {
+            log.error("Authentication failed for user: {}", authRequest.getUsername(), e);
+            throw new RuntimeException(e);
+        }
+        log.info("Authentication successful: {}", authentication);
         if (authentication.isAuthenticated()) {
             return jwtService.generateToken(authRequest.getUsername());
         } else {
+            log.info("Authentication failed: {}", authentication);
             throw new UsernameNotFoundException("Invalid user request!");
         }
     }

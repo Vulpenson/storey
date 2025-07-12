@@ -1,7 +1,11 @@
 package com.fox.storey.service;
 
+import com.fox.storey.dto.ProductDto;
+import com.fox.storey.dto.ProductUpdateDto;
+import com.fox.storey.entity.Category;
 import com.fox.storey.entity.Product;
 import com.fox.storey.entity.User;
+import com.fox.storey.repository.CategoryRepository;
 import com.fox.storey.repository.ProductRepository;
 import com.fox.storey.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -17,8 +21,18 @@ import java.util.Optional;
 public class ProductService {
     private final ProductRepository productRepository;
     private final UserRepository userRepository;
+    private final CategoryRepository categoryRepository;
 
-    public Product saveProduct(Product product) {
+    public Product saveProduct(ProductDto productDto) {
+        Product product = convertToEntity(productDto);
+        if (productRepository.findByName(product.getName()).isPresent()) {
+            log.error("Product with name '{}' already exists", product.getName());
+            throw new RuntimeException("Product with name '" + product.getName() + "' already exists");
+        }
+        if (product.getPrice() <= 0) {
+            log.error("Product price must be greater than zero");
+            throw new RuntimeException("Product price must be greater than zero");
+        }
         return productRepository.save(product);
     }
 
@@ -54,13 +68,17 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public Product updateProduct(Product product) {
+    public Product updateProduct(ProductUpdateDto productDto) {
         try {
-            if (product.getId() == null || !productRepository.existsById(product.getId())) {
-                log.error("Product not found for update with ID: {}", product.getId());
-                throw new RuntimeException("Product not found for update with ID: " + product.getId());
+            Product updatedProduct = convertToEntity(productDto);
+
+            Optional<Product> oldProduct = productRepository.findById(updatedProduct.getId());
+
+            if (oldProduct.isEmpty()) {
+                log.error("Product not found for update with ID: {}", updatedProduct.getId());
+                throw new RuntimeException("Product not found for update with ID: " + updatedProduct.getId());
             }
-            return productRepository.save(product);
+            return productRepository.save(updatedProduct);
         } catch (Exception e) {
             log.error("Error checking product existence for update: {}", e.getMessage());
             throw new RuntimeException("Error checking product existence for update: " + e.getMessage());
@@ -122,5 +140,38 @@ public class ProductService {
             log.error("Error adding product to favorites: {}", e.getMessage());
             throw new RuntimeException("Error adding product to favorites: " + e.getMessage());
         }
+    }
+
+    public Product convertToEntity(ProductDto productDto) {
+        Product product = new Product();
+        product.setName(productDto.getName());
+        product.setDescription(productDto.getDescription());
+        product.setPrice(productDto.getPrice());
+        if (productDto.getCategoryId() != null) {
+            Optional<Category> category = categoryRepository.findById(productDto.getCategoryId());
+            if (category.isEmpty()) {
+                log.error("Category not found with ID: {}", productDto.getCategoryId());
+                throw new RuntimeException("Category not found with ID: " + productDto.getCategoryId());
+            }
+            product.setCategory(category.get());
+        }
+        return product;
+    }
+
+    public Product convertToEntity(ProductUpdateDto productDto) {
+        Product product = new Product();
+        product.setId(productDto.getId());
+        product.setName(productDto.getName());
+        product.setDescription(productDto.getDescription());
+        product.setPrice(productDto.getPrice());
+        if (productDto.getCategoryId() != null) {
+            Optional<Category> category = categoryRepository.findById(productDto.getCategoryId());
+            if (category.isEmpty()) {
+                log.error("Category not found with ID: {}", productDto.getCategoryId());
+                throw new RuntimeException("Category not found with ID: " + productDto.getCategoryId());
+            }
+            product.setCategory(category.get());
+        }
+        return product;
     }
 }

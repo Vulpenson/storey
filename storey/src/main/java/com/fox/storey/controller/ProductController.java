@@ -1,5 +1,7 @@
 package com.fox.storey.controller;
 
+import com.fox.storey.dto.ProductDto;
+import com.fox.storey.dto.ProductUpdateDto;
 import com.fox.storey.entity.Product;
 import com.fox.storey.service.ProductService;
 import lombok.AllArgsConstructor;
@@ -17,16 +19,18 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/add")
-    public ResponseEntity<Product> addProduct(@RequestBody Product product) {
+    public ResponseEntity<Product> addProduct(@RequestBody ProductDto product) {
         log.info("Adding new product: {}", product.getName());
         Product saved = productService.saveProduct(product);
+        log.info("Product added successfully: {}", saved.getName());
         return ResponseEntity.ok(saved);
     }
 
     @PostMapping("/update")
-    public ResponseEntity<Product> updateProduct(@RequestBody Product product) {
+    public ResponseEntity<Product> updateProduct(@RequestBody ProductUpdateDto product) {
         log.info("Updating product: {}", product.getName());
         Product updated = productService.updateProduct(product);
+        log.info("Updated product: {}", updated.getName());
         return ResponseEntity.ok(updated);
     }
 
@@ -62,6 +66,7 @@ public class ProductController {
     public ResponseEntity<Product> changeProductPrice(@PathVariable Long id, @RequestBody Float newPrice) {
         log.info("Changing price for product ID: {}", id);
         Product updatedProduct = productService.changeProductPrice(id, newPrice);
+        log.info("Updated product price for ID: {} to {}", id, newPrice);
         return ResponseEntity.ok(updatedProduct);
     }
 

@@ -2,6 +2,8 @@ package com.fox.storey.unit.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fox.storey.controller.ProductController;
+import com.fox.storey.dto.ProductDto;
+import com.fox.storey.dto.ProductUpdateDto;
 import com.fox.storey.entity.*;
 
 import com.fox.storey.service.ProductService;
@@ -36,7 +38,7 @@ public class ProductControllerTest {
     @Test
     void testAddProduct() throws Exception {
         Product input = new Product(1L, "Test Product", "", 100f, null);
-        Mockito.when(productService.saveProduct(any(Product.class))).thenReturn(input);
+        Mockito.when(productService.saveProduct(any(ProductDto.class))).thenReturn(input);
 
         mockMvc.perform(post("/storey/products/add")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -53,7 +55,7 @@ public class ProductControllerTest {
     @Test
     void testUpdateProduct() throws Exception {
         Product input = new Product(1L, "Updated Product", "", 150f, null);
-        Mockito.when(productService.updateProduct(any(Product.class))).thenReturn(input);
+        Mockito.when(productService.updateProduct(any(ProductUpdateDto.class))).thenReturn(input);
 
         mockMvc.perform(post("/storey/products/update")
                         .contentType(MediaType.APPLICATION_JSON)
