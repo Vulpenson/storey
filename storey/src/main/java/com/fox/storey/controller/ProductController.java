@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/storey/products")
 @AllArgsConstructor
@@ -50,9 +52,9 @@ public class ProductController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<Iterable<Product>> getAllProducts() {
+    public ResponseEntity<List<Product>> getAllProducts() {
         log.info("Fetching all products");
-        Iterable<Product> products = productService.getAllProducts();
+        List<Product> products = productService.getAllProducts();
         return ResponseEntity.ok(products);
     }
 
