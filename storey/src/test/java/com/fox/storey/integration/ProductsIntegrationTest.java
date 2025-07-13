@@ -50,12 +50,10 @@ public class ProductsIntegrationTest {
 
     @Test
     public void testAddProduct() throws Exception {
-        ProductDto testProduct = new ProductDto();
-
-        testProduct.setName("Test Product");
-        testProduct.setDescription("This is a test product");
-        testProduct.setPrice(100.0f);
-        testProduct.setCategoryId(1L);
+        ProductDto testProduct = new ProductDto("Test Product",
+                "This is a test product",
+                100.0f,
+                1L);
 
         mockMvc.perform(post("/storey/products/add")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -94,13 +92,11 @@ public class ProductsIntegrationTest {
 
     @Test
     public void testUpdateProduct() throws Exception {
-        ProductUpdateDto updatedProduct = ProductUpdateDto.builder()
-                .id(1L)
-                .name("Updated Test Product")
-                .description("This is a test product")
-                .price(100.0f)
-                .categoryId(1L)
-                .build();
+        ProductUpdateDto updatedProduct = new ProductUpdateDto(1L,
+                "Updated Test Product",
+                "",
+                100f,
+                1L);
 
 
         mockMvc.perform(post("/storey/products/update")
@@ -110,6 +106,7 @@ public class ProductsIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.name").value("Updated Test Product"))
+                .andExpect(jsonPath("$.description").value(""))
                 .andExpect(jsonPath("$.price").value(100.0f))
                 .andDo(result -> log.info("Updated Product: {}", result.getResponse().getContentAsString()));
     }
