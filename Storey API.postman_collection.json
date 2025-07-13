@@ -1,0 +1,1388 @@
+{
+	"info": {
+		"_postman_id": "0af6329e-4776-42e2-bea0-60c02cee1411",
+		"name": "Storey API",
+		"description": "API for managing the Storey backend.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21078614"
+	},
+	"item": [
+		{
+			"name": "storey",
+			"item": [
+				{
+					"name": "products",
+					"item": [
+						{
+							"name": "delete Product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "21",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/storey/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"storey",
+										"products"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "-52390779",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/storey/products",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"storey",
+												"products"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "sint dolore laboris pariatur"
+								}
+							]
+						},
+						{
+							"name": "update Product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"name\": \"Test Update\",\n  \"description\": \"Test description\",\n  \"price\": 0.2,\n  \"categoryId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/storey/products/update",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"storey",
+										"products",
+										"update"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -75422693,\n  \"name\": \"amet Ut\",\n  \"description\": \"officia cupidatat in ut\",\n  \"price\": -66515460.87159614,\n  \"categoryId\": -7023560\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/storey/products/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"storey",
+												"products",
+												"update"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": -75697531,\n  \"name\": \"minim sunt nulla\",\n  \"description\": \"elit et nulla\",\n  \"price\": -43462275.58502726,\n  \"category\": {\n    \"id\": -48819178,\n    \"name\": \"consequat commodo est\",\n    \"products\": [\n      {\n        \"id\": -65620058,\n        \"name\": \"Ut nulla\",\n        \"description\": \"eu enim\",\n        \"price\": 63899188.74652034,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      },\n      {\n        \"id\": 13460709,\n        \"name\": \"anim laborum culpa irure\",\n        \"description\": \"id\",\n        \"price\": -27041830.8763071,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      }\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "change Product Price",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "0.5",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/storey/products/changePrice/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"storey",
+										"products",
+										"changePrice",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "28330421.92726651",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/storey/products/changePrice/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"storey",
+												"products",
+												"changePrice",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "-52390779",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": -75697531,\n  \"name\": \"minim sunt nulla\",\n  \"description\": \"elit et nulla\",\n  \"price\": -43462275.58502726,\n  \"category\": {\n    \"id\": -48819178,\n    \"name\": \"consequat commodo est\",\n    \"products\": [\n      {\n        \"id\": -65620058,\n        \"name\": \"Ut nulla\",\n        \"description\": \"eu enim\",\n        \"price\": 63899188.74652034,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      },\n      {\n        \"id\": 13460709,\n        \"name\": \"anim laborum culpa irure\",\n        \"description\": \"id\",\n        \"price\": -27041830.8763071,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      }\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "add Product",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": -75422693,\n  \"name\": \"amet Ut\",\n  \"description\": \"officia cupidatat in ut\",\n  \"price\": -66515460.87159614,\n  \"categoryId\": -7023560\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/storey/products/add",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"storey",
+										"products",
+										"add"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": -75422693,\n  \"name\": \"amet Ut\",\n  \"description\": \"officia cupidatat in ut\",\n  \"price\": -66515460.87159614,\n  \"categoryId\": -7023560\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/storey/products/add",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"storey",
+												"products",
+												"add"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": -75697531,\n  \"name\": \"minim sunt nulla\",\n  \"description\": \"elit et nulla\",\n  \"price\": -43462275.58502726,\n  \"category\": {\n    \"id\": -48819178,\n    \"name\": \"consequat commodo est\",\n    \"products\": [\n      {\n        \"id\": -65620058,\n        \"name\": \"Ut nulla\",\n        \"description\": \"eu enim\",\n        \"price\": 63899188.74652034,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      },\n      {\n        \"id\": 13460709,\n        \"name\": \"anim laborum culpa irure\",\n        \"description\": \"id\",\n        \"price\": -27041830.8763071,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      }\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "add Product To Favorites",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/storey/products/addFavorite/:productId/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"storey",
+										"products",
+										"addFavorite",
+										":productId",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "-52390779",
+											"description": "(Required) "
+										},
+										{
+											"key": "userId",
+											"value": "-52390779",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/storey/products/addFavorite/:productId/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"storey",
+												"products",
+												"addFavorite",
+												":productId",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "-52390779",
+													"description": "(Required) "
+												},
+												{
+													"key": "userId",
+													"value": "-52390779",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "sint dolore laboris pariatur"
+								}
+							]
+						},
+						{
+							"name": "get Product By Name",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/storey/products/getByName/:name",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"storey",
+										"products",
+										"getByName",
+										":name"
+									],
+									"variable": [
+										{
+											"key": "name",
+											"value": "Apple",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/storey/products/getByName/:name",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"storey",
+												"products",
+												"getByName",
+												":name"
+											],
+											"variable": [
+												{
+													"key": "name",
+													"value": "sint dolore laboris pariatur",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": -75697531,\n  \"name\": \"minim sunt nulla\",\n  \"description\": \"elit et nulla\",\n  \"price\": -43462275.58502726,\n  \"category\": {\n    \"id\": -48819178,\n    \"name\": \"consequat commodo est\",\n    \"products\": [\n      {\n        \"id\": -65620058,\n        \"name\": \"Ut nulla\",\n        \"description\": \"eu enim\",\n        \"price\": 63899188.74652034,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      },\n      {\n        \"id\": 13460709,\n        \"name\": \"anim laborum culpa irure\",\n        \"description\": \"id\",\n        \"price\": -27041830.8763071,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      }\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "get Product By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/storey/products/getById/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"storey",
+										"products",
+										"getById",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "-52390779",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/storey/products/getById/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"storey",
+												"products",
+												"getById",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "-52390779",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": -75697531,\n  \"name\": \"minim sunt nulla\",\n  \"description\": \"elit et nulla\",\n  \"price\": -43462275.58502726,\n  \"category\": {\n    \"id\": -48819178,\n    \"name\": \"consequat commodo est\",\n    \"products\": [\n      {\n        \"id\": -65620058,\n        \"name\": \"Ut nulla\",\n        \"description\": \"eu enim\",\n        \"price\": 63899188.74652034,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      },\n      {\n        \"id\": 13460709,\n        \"name\": \"anim laborum culpa irure\",\n        \"description\": \"id\",\n        \"price\": -27041830.8763071,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      }\n    ]\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "get All Products",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/storey/products/all",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"storey",
+										"products",
+										"all"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/storey/products/all",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"storey",
+												"products",
+												"all"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": 14652454,\n    \"name\": \"esse sit\",\n    \"description\": \"Excepteur do Duis\",\n    \"price\": -14641961.522972792,\n    \"category\": {\n      \"id\": 2319408,\n      \"name\": \"qui laborum dolor in minim\",\n      \"products\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Product detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Product detected>\"\n        }\n      ]\n    }\n  },\n  {\n    \"id\": 67741439,\n    \"name\": \"dolore aliquip ut\",\n    \"description\": \"qui sed id non elit\",\n    \"price\": 90778594.63988775,\n    \"category\": {\n      \"id\": -86497003,\n      \"name\": \"labore adipisicing quis culpa\",\n      \"products\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Product detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/Product detected>\"\n        }\n      ]\n    }\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "categories",
+					"item": [
+						{
+							"name": "add Category",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "Vegetables",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/storey/categories/add",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"storey",
+										"categories",
+										"add"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "sint dolore laboris pariatur",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/storey/categories/add",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"storey",
+												"categories",
+												"add"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 44493824,\n  \"name\": \"aute proident occaeca\",\n  \"products\": [\n    {\n      \"id\": 98964766,\n      \"name\": \"veniam ea et non\",\n      \"description\": \"dolor\",\n      \"price\": -54629082.062292114,\n      \"category\": {\n        \"id\": -60166592,\n        \"name\": \"voluptate cupidatat consequat aliqu\",\n        \"products\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Product detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Product detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": -48044251,\n      \"name\": \"ut Lorem aliq\",\n      \"description\": \"occaecat do\",\n      \"price\": 80200994.15297487,\n      \"category\": {\n        \"id\": 28457114,\n        \"name\": \"in in magna\",\n        \"products\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Product detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Product detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "get Category By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/storey/categories/getById/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"storey",
+										"categories",
+										"getById",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/storey/categories/getById/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"storey",
+												"categories",
+												"getById",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "-52390779",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": 44493824,\n  \"name\": \"aute proident occaeca\",\n  \"products\": [\n    {\n      \"id\": 98964766,\n      \"name\": \"veniam ea et non\",\n      \"description\": \"dolor\",\n      \"price\": -54629082.062292114,\n      \"category\": {\n        \"id\": -60166592,\n        \"name\": \"voluptate cupidatat consequat aliqu\",\n        \"products\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Product detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Product detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": -48044251,\n      \"name\": \"ut Lorem aliq\",\n      \"description\": \"occaecat do\",\n      \"price\": 80200994.15297487,\n      \"category\": {\n        \"id\": 28457114,\n        \"name\": \"in in magna\",\n        \"products\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Product detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Product detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}"
+								}
+							]
+						},
+						{
+							"name": "get All Categories",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/storey/categories/all",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"storey",
+										"categories",
+										"all"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/storey/categories/all",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"storey",
+												"categories",
+												"all"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": 39940326,\n    \"name\": \"non nulla Excepteur ut\",\n    \"products\": [\n      {\n        \"id\": -7083742,\n        \"name\": \"qui tempor\",\n        \"description\": \"nulla ipsum consequat m\",\n        \"price\": 91965402.87846768,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      },\n      {\n        \"id\": -27233515,\n        \"name\": \"est ea\",\n        \"description\": \"consequ\",\n        \"price\": -72677114.3738504,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      }\n    ]\n  },\n  {\n    \"id\": 27839650,\n    \"name\": \"ad in\",\n    \"products\": [\n      {\n        \"id\": -5114252,\n        \"name\": \"laboris aliqua aute incididunt\",\n        \"description\": \"ex ad mollit exercitation deseru\",\n        \"price\": -33125105.30986441,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      },\n      {\n        \"id\": -29100139,\n        \"name\": \"reprehenderit mollit velit in quis\",\n        \"description\": \"veniam\",\n        \"price\": -38980969.93328934,\n        \"category\": {\n          \"value\": \"<Circular reference to #/components/schemas/Category detected>\"\n        }\n      }\n    ]\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "delete Category",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/storey/categories/delete/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"storey",
+										"categories",
+										"delete",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "21",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/storey/categories/delete/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"storey",
+												"categories",
+												"delete",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "-52390779",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "sint dolore laboris pariatur"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "authenticate And Get Token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"test@test.com\",\n  \"password\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/generateToken",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"generateToken"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"Lorem aliquip\",\n  \"password\": \"culpa dolor ea ut\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/generateToken",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"generateToken"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "sint dolore laboris pariatur"
+						}
+					]
+				},
+				{
+					"name": "add New User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"test@tester.com\",\n  \"password\": \"funnyShit\",\n  \"role\": \"ADMIN\",\n  \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/addNewUser",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"addNewUser"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"dolore consequat commodo\",\n  \"password\": \"minim id eu aliquip dolore\",\n  \"role\": \"laborum adipisicing cupidatat\",\n  \"active\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/addNewUser",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"addNewUser"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "sint dolore laboris pariatur"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "jwt",
+		"jwt": [
+			{
+				"key": "secret",
+				"value": "{{vault:jwtSecret}}",
+				"type": "string"
+			},
+			{
+				"key": "algorithm",
+				"value": "HS256",
+				"type": "string"
+			},
+			{
+				"key": "isSecretBase64Encoded",
+				"value": false,
+				"type": "boolean"
+			},
+			{
+				"key": "payload",
+				"value": "{}",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "headerPrefix",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "queryParamKey",
+				"value": "token",
+				"type": "string"
+			},
+			{
+				"key": "header",
+				"value": "{}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "bearerToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
