@@ -28,7 +28,7 @@ Create an API that acts as a store management tool.
 
 - **Product & Category Management**
   - CRUD operations for `Product` and `Category` entities
-  - DTOs for clean API data handling (refactored to Java 17 records)
+  - DTOs for clean API data handling (Java 17 records)
 
 - **Authentication & Authorization**
   - JWT token generation and validation
@@ -47,7 +47,7 @@ Create an API that acts as a store management tool.
 
 - **Extras**
   - Postman Collection for testing all endpoints (requires customizing some values)
-  - Clean Maven project structure
+  - Maven project structure
   - Usage of modern Java 17+ features (records)
 
 ### Requirements
