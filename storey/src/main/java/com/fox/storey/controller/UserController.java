@@ -1,7 +1,7 @@
 package com.fox.storey.controller;
 
 import com.fox.storey.dto.UserDto;
-import com.fox.storey.entity.AuthRequest;
+import com.fox.storey.dto.AuthRequest;
 import com.fox.storey.service.JwtService;
 import com.fox.storey.service.UserInfoService;
 import lombok.AllArgsConstructor;

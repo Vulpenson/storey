@@ -3,7 +3,7 @@ package com.fox.storey.integration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fox.storey.dto.ProductDto;
 import com.fox.storey.dto.ProductUpdateDto;
-import com.fox.storey.entity.AuthRequest;
+import com.fox.storey.dto.AuthRequest;
 import com.fox.storey.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;

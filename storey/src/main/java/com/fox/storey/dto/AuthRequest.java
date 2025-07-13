@@ -1,4 +1,4 @@
-package com.fox.storey.entity;
+package com.fox.storey.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
