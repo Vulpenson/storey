@@ -8,8 +8,8 @@ Create an API that acts as a store management tool.
 - [x] Implement a basic authentication mechanism and role-based endpoint access  
 - [x] Design error mechanism and handling plus logging  
 - [x] Write unit tests, at least for one class  
-- [ ] Nice to have: use Java 17+ features  
-- [ ] Add a small README to document the project  
+- [x] Nice to have: use Java 17+ features  
+- [x] Add a small README to document the project  
 
 ---
 
@@ -20,7 +20,7 @@ Create an API that acts as a store management tool.
 - [x] SwaggerUI  
 - [x] One integration test for an endpoint
 - [ ] Kafka — simulate sending `ProductCreatedEvent` to analytics when a product is created  
-- [ ] Create Postman collection  
+- [x] Create Postman collection  
 
 
-### Every pull request has bigger-picture explanations on the code changes that are brought up in each branch  
+### Every pull request has explanations on the code changes that are brought up in each branch  
