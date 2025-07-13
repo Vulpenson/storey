@@ -1,7 +1,7 @@
 package com.fox.storey.controller;
 
 import com.fox.storey.dto.UserDto;
-import com.fox.storey.entity.AuthRequest;
+import com.fox.storey.dto.AuthRequest;
 import com.fox.storey.service.JwtService;
 import com.fox.storey.service.UserInfoService;
 import lombok.AllArgsConstructor;
@@ -36,15 +36,15 @@ public class UserController {
         Authentication authentication;
         try {
             authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
+                    new UsernamePasswordAuthenticationToken(authRequest.username(), authRequest.password())
             );
         } catch (AuthenticationException e) {
-            log.error("Authentication failed for user: {}", authRequest.getUsername(), e);
+            log.error("Authentication failed for user: {}", authRequest.username(), e);
             throw new RuntimeException(e);
         }
         log.info("Authentication successful: {}", authentication);
         if (authentication.isAuthenticated()) {
-            return jwtService.generateToken(authRequest.getUsername());
+            return jwtService.generateToken(authRequest.username());
         } else {
             log.info("Authentication failed: {}", authentication);
             throw new UsernameNotFoundException("Invalid user request!");
