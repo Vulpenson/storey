@@ -144,14 +144,14 @@ public class ProductService {
 
     public Product convertToEntity(ProductDto productDto) {
         Product product = new Product();
-        product.setName(productDto.getName());
-        product.setDescription(productDto.getDescription());
-        product.setPrice(productDto.getPrice());
-        if (productDto.getCategoryId() != null) {
-            Optional<Category> category = categoryRepository.findById(productDto.getCategoryId());
+        product.setName(productDto.name());
+        product.setDescription(productDto.description());
+        product.setPrice(productDto.price());
+        if (productDto.categoryId() != null) {
+            Optional<Category> category = categoryRepository.findById(productDto.categoryId());
             if (category.isEmpty()) {
-                log.error("Category not found with ID: {}", productDto.getCategoryId());
-                throw new RuntimeException("Category not found with ID: " + productDto.getCategoryId());
+                log.error("Category not found with ID: {}", productDto.categoryId());
+                throw new RuntimeException("Category not found with ID: " + productDto.categoryId());
             }
             product.setCategory(category.get());
         }
@@ -160,15 +160,15 @@ public class ProductService {
 
     public Product convertToEntity(ProductUpdateDto productDto) {
         Product product = new Product();
-        product.setId(productDto.getId());
-        product.setName(productDto.getName());
-        product.setDescription(productDto.getDescription());
-        product.setPrice(productDto.getPrice());
-        if (productDto.getCategoryId() != null) {
-            Optional<Category> category = categoryRepository.findById(productDto.getCategoryId());
+        product.setId(productDto.id());
+        product.setName(productDto.name());
+        product.setDescription(productDto.description());
+        product.setPrice(productDto.price());
+        if (productDto.categoryId() != null) {
+            Optional<Category> category = categoryRepository.findById(productDto.categoryId());
             if (category.isEmpty()) {
-                log.error("Category not found with ID: {}", productDto.getCategoryId());
-                throw new RuntimeException("Category not found with ID: " + productDto.getCategoryId());
+                log.error("Category not found with ID: {}", productDto.categoryId());
+                throw new RuntimeException("Category not found with ID: " + productDto.categoryId());
             }
             product.setCategory(category.get());
         }

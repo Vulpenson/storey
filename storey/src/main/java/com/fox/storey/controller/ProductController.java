@@ -20,7 +20,7 @@ public class ProductController {
 
     @PostMapping("/add")
     public ResponseEntity<Product> addProduct(@RequestBody ProductDto product) {
-        log.info("Adding new product: {}", product.getName());
+        log.info("Adding new product: {}", product.name());
         Product saved = productService.saveProduct(product);
         log.info("Product added successfully: {}", saved.getName());
         return ResponseEntity.ok(saved);
@@ -28,7 +28,7 @@ public class ProductController {
 
     @PostMapping("/update")
     public ResponseEntity<Product> updateProduct(@RequestBody ProductUpdateDto product) {
-        log.info("Updating product: {}", product.getName());
+        log.info("Updating product: {}", product.name());
         Product updated = productService.updateProduct(product);
         log.info("Updated product: {}", updated.getName());
         return ResponseEntity.ok(updated);

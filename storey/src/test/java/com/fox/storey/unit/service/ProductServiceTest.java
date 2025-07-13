@@ -52,11 +52,10 @@ public class ProductServiceTest {
         testProduct.setDescription("Juicy red apple");
         testProduct.setPrice(0.5F);
 
-        testProductDto = new ProductDto();
-        testProductDto.setName("Apple");
-        testProductDto.setDescription("Juicy red apple");
-        testProductDto.setPrice(0.5F);
-        testProductDto.setCategoryId(1L);
+        testProductDto = new ProductDto("Apple",
+                                        "Juicy red apple",
+                                        0.5F,
+                                        1L);
 
         testCategory = new Category();
         testCategory.setId(1L);

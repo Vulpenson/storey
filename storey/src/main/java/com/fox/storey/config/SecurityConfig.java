@@ -51,7 +51,7 @@ public class SecurityConfig {
                                 "/swagger-resources/**",
                                 "/webjars/**"
                         ).permitAll()
-                        // Your existing public and protected endpoints here
+
                         .requestMatchers("/auth/generateToken").permitAll()
 
                         // Role-based endpoints
